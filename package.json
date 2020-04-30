@@ -1,0 +1,11 @@
+{
+  "name": "wotm-website",
+  "version": "1.0.0",
+  "description": "Website for local non-profit developing programs and connecting stakeholders to invest in housing, industry, commerce and youth in Woodside, Queens",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC"
+}
