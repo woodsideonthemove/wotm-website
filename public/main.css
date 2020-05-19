@@ -1,14 +1,12 @@
 @charset "UTF-8";
-@import url('https://fonts.googleapis.com/css?family=Lobster|Open+Sans:300,400,600,700,800');
-
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Jost:wght@700&family=Poppins:wght@400;700&family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Kaushan+Script&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lobster&family=Oswald:wght@400;600&family=Pacifico&family=Squada+One&display=swap');
 /*
 	Road Trip by TEMPLATED
 	templated.co @templatedco
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 */
-
 /* Reset */
-
 html,
 body,
 div,
@@ -110,6 +108,7 @@ menu,
 nav,
 section {
   display: block;
+  align-items: flex-end;
 }
 
 body {
@@ -3757,7 +3756,7 @@ body.subpage {
   -moz-align-items: center;
   -webkit-align-items: center;
   -ms-align-items: center;
-  align-items: center;
+  align-items: baseline;
   display: -moz-flex;
   display: -webkit-flex;
   display: -ms-flex;
@@ -3774,8 +3773,9 @@ body.subpage {
   min-height: 100vh;
   height: 100vh;
   position: relative;
-  text-align: center;
+  text-align: right;
   overflow: hidden;
+  margin-top: 20px;
 }
 
 #banner .inner {
@@ -3790,16 +3790,30 @@ body.subpage {
   opacity: 1;
   position: relative;
   z-index: 2;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 40px;
+}
+
+.bg-img-1 {
+  background-image: url('https://i.ibb.co/ZJhTFxf/banner-1.jpg');
 }
 
 #banner h1 {
-  font-size: 7em;
-  line-height: 1.1;
-  font-family: 'Lobster', cursive;
-  margin-bottom: 0.25em;
-  color: rgba(255, 255, 255, 0.75);
+  width: 400px;
+  font-size: 3em;
+  line-height: 0.9;
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 200;
+  color: #f2e8cf;
   text-shadow: -2px -2px 0 rgba(0, 0, 0, 0.125);
   text-transform: none;
+}
+
+#banner h1 span {
+  font-size: 1.5em;
+  font-family: 'Lobster', cursive;
+  color: #386641;
 }
 
 #banner p {
@@ -3914,7 +3928,7 @@ body.subpage {
   transition-delay: 1.25s;
   content: '';
   display: block;
-  background-color: #000;
+  background-color: rgb(206, 206, 206);
   height: 100%;
   left: 0;
   opacity: 0.45;
@@ -4585,4 +4599,8 @@ body.is-loading #banner:before {
   #footer {
     padding: 3em 0 1em 0;
   }
+}
+
+#one {
+  background-image: url('https://i.ibb.co/dtxCkz2/409536202-57868e0a60-b.jpg');
 }

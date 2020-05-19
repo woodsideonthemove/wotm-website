@@ -6,7 +6,6 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import List from '@material-ui/core/List'
-import Typography from '@material-ui/core/Typography'
 import Divider from '@material-ui/core/Divider'
 import IconButton from '@material-ui/core/IconButton'
 import HomeIcon from '@material-ui/icons/Home'
@@ -24,7 +23,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import {Link} from 'react-router-dom'
 
-const drawerWidth = 240
+const drawerWidth = 280
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -35,6 +34,9 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+    backgroundColor: '#386641',
+    height: '83px',
+    marginBottom: '80px',
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -46,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    padding: theme.spacing(4),
   },
   hide: {
     display: 'none',
@@ -60,19 +63,25 @@ const useStyles = makeStyles((theme) => ({
   drawerHeader: {
     display: 'flex',
     alignItems: 'center',
-    padding: theme.spacing(0, 1),
+    padding: theme.spacing(3, 3),
     // necessary for content to be below app bar
+    backgroundColor: '#6A994E',
+    height: '83px',
     ...theme.mixins.toolbar,
     justifyContent: 'flex-start',
+
+    boxShadow:
+      '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
+    padding: theme.spacing(30),
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
     marginRight: -drawerWidth,
+    textDecoration: 'none',
   },
   contentShift: {
     transition: theme.transitions.create('margin', {
@@ -106,9 +115,13 @@ export const Navbar = () => {
         })}
       >
         <Toolbar>
-          <Typography variant="h6" noWrap className={classes.title}>
-            Woodside on the Move
-          </Typography>
+          <div variant="h6" nowrap="true" className={classes.title}>
+            <img
+              src="https://i.ibb.co/prqtg3H/WOTM-white-full-logo.png"
+              width="220px"
+              flex-grow="2"
+            />
+          </div>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -132,9 +145,9 @@ export const Navbar = () => {
         <div className={classes.drawerHeader}>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === 'rtl' ? (
-              <ChevronLeftIcon />
+              <ChevronLeftIcon marginleft="-10px" />
             ) : (
-              <ChevronRightIcon />
+              <ChevronRightIcon marginleft="-10px" />
             )}
           </IconButton>
         </div>
@@ -144,15 +157,19 @@ export const Navbar = () => {
             <ListItemIcon>
               <HomeIcon />
             </ListItemIcon>
-            <Link href="/" variant="body2">
-              <ListItemText primary="Home" />
+            <Link to="/" variant="body2">
+              <ListItemText
+                textDecoration="none"
+                color="black"
+                primary="Home"
+              />
             </Link>
           </ListItem>
           <ListItem>
             <ListItemIcon>
               <InfoIcon />
             </ListItemIcon>
-            <Link href="/about" variant="body2">
+            <Link to="/about" variant="body2">
               <ListItemText primary="About" />
             </Link>
           </ListItem>
@@ -160,7 +177,7 @@ export const Navbar = () => {
             <ListItemIcon>
               <BallotIcon />
             </ListItemIcon>
-            <Link href="/programs" variant="body2">
+            <Link to="/programs" variant="body2">
               <ListItemText primary="Programs" />
             </Link>
           </ListItem>
@@ -168,7 +185,7 @@ export const Navbar = () => {
             <ListItemIcon>
               <SubjectIcon />
             </ListItemIcon>
-            <Link href="/news" variant="body2">
+            <Link to="/news" variant="body2">
               <ListItemText primary="News" />
             </Link>
           </ListItem>
@@ -176,7 +193,7 @@ export const Navbar = () => {
             <ListItemIcon>
               <EventIcon />
             </ListItemIcon>
-            <Link href="/events" variant="body2">
+            <Link to="/events" variant="body2">
               <ListItemText primary="Events" />
             </Link>
           </ListItem>
@@ -184,7 +201,7 @@ export const Navbar = () => {
             <ListItemIcon>
               <PeopleOutlineIcon />
             </ListItemIcon>
-            <Link href="/volunteer" variant="body2">
+            <Link to="/volunteer" variant="body2">
               <ListItemText primary="Volunteer" />
             </Link>
           </ListItem>
@@ -192,7 +209,7 @@ export const Navbar = () => {
             <ListItemIcon>
               <FavoriteBorderIcon />
             </ListItemIcon>
-            <Link href="/donate" variant="body2">
+            <Link to="/donate" variant="body2">
               <ListItemText primary="Donate" />
             </Link>
           </ListItem>

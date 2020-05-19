@@ -20,8 +20,8 @@ class Routes extends Component {
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
-        {/* <Route exact path="/" component={Home} />
-        <Route exact path="/posts" component={AllPosts} />
+        <Route exact path="/" component={Home} />
+        {/*<Route exact path="/posts" component={AllPosts} />
         <Route exact path="/events" component={Events} />
         <Route path="/about" component={About} />
         <Route path="/programs" component={Programs} />
