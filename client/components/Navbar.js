@@ -36,7 +36,6 @@ const useStyles = makeStyles((theme) => ({
     }),
     backgroundColor: '#386641',
     height: '83px',
-    marginBottom: '80px',
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,

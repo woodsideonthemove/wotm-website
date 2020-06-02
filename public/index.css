@@ -1,37 +1,61 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Jost:wght@700&family=Poppins:wght@400;700&family=Shrikhand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Kaushan+Script&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lobster&family=Oswald:wght@400;600&family=Pacifico&family=Squada+One&display=swap');
 
+#appContainer {
+  margin-top: 83px;
+}
+
 .container {
-  max-width: 960px;
-  margin-top: 35px;
+  width: 100%;
+  margin-top: 25px;
   background: #f9f9f9;
-  font-size: 24px;
-  padding: 25px;
+  font-size: 20px;
+  padding-top: 25px;
 }
 
 .parallax-window {
   min-height: 400px;
   background: transparent;
   width: 100%;
+  display: 'flex';
+  align-items: center;
+  justify-content: 'flex-end';
 }
 
 .navpad {
   padding-top: 50px;
 }
 
-.container h1 {
-  width: 400px;
-  font-size: 3em;
-  line-height: 0.9;
-  font-family: 'Libre Baskerville', serif;
-  font-weight: 200;
-  color: #f2e8cf;
-  text-shadow: -2px -2px 0 rgba(0, 0, 0, 0.125);
-  text-transform: none;
+.parallax-window h1,
+.parallax-window p {
+  z-index: 3;
+  position: relative;
+  color: white;
+  text-align: right;
+  align-items: flex-end;
 }
 
-#banner h1 span {
+.parallax-window h1 {
+  padding: 90px 55px;
+}
+
+.parallax-window h1 span {
   font-size: 1.5em;
   font-family: 'Lobster', cursive;
-  color: #386641;
 }
+
+.parallax-window p {
+  max-width: 400px;
+  /* background-color: whitesmoke;
+  opacity: 0.4; */
+}
+
+.bgOverlay {
+  background-color: whitesmoke 0.4;
+  z-index: 2;
+  position: relative;
+}
+
+/* .content {
+  padding: 30px;
+} */
