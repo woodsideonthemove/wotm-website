@@ -9,6 +9,13 @@ const postsSeed = require('./postsSeed.js')
 const eventSeed = require('./eventSeed.js')
 const userSeed = require('./userSeed.js')
 
+const tags = [
+  {tag: 'education'},
+  {tag: 'housing'},
+  {tag: 'community'},
+  {tag: 'action'},
+]
+
 async function seed() {
   await db.sync({force: true})
   console.log('db synced!')
