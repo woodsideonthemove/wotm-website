@@ -1,7 +1,6 @@
 const eventSeed = [
   {
-    name:
-      'Virtual Town Hall Meeting: \nSave our AFTER SCHOOL and HOUSING Programs',
+    name: 'Virtual Town Hall Meeting: Save our After School & Housing Programs',
     description:
       "Now more than ever, we need your support to <strong>secure</strong> our programs and avoid the <strong>millions of dollars in funding cuts</strong> announced in the NY State Budged and by the  Mayor's Office. Let's take the opportunity to ask and listen to our elected officials about their plans to address what will surely impact thousands of families in our community.",
     partners: [
@@ -12,7 +11,7 @@ const eventSeed = [
       'Assembly Member Brian Barnwell',
       'Assembly Member Catalina Cruz',
     ],
-    date: new Date('April 30, 2020 18:00:00'),
+    date: new Date('April 30, 2020 18:00:00 GMT-0400'),
     contactPhone: '',
     contactEmail: 'info@woodsideonthemove.org',
     streetAddress:
