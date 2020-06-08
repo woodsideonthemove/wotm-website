@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 500,
   },
   media: {
-    height: 300,
+    height: '100%',
     paddingTop: '56.25%', // 16:9
   },
   expand: {
@@ -57,6 +57,53 @@ export default function EventCard(props) {
     }
   }
 
+  const contact = (email, phone = false) => {
+    return phone ? (
+      <ul>
+        <li>{email}</li>
+        <li>{phone}</li>
+      </ul>
+    ) : (
+      <ul>
+        <li>{email}</li>
+      </ul>
+    )
+  }
+
+  const location = (street, secondary, city, state, zip, link = false) => {
+    return (
+      <div>
+        <span>
+          <strong>
+            {link ? (
+              <a style={{margin: 0}} href={link}>
+                {street}
+              </a>
+            ) : (
+              <p style={{margin: 0}}>{street}</p>
+            )}
+          </strong>
+        </span>
+        {city.length ? (
+          <span>
+            {secondary.length ? (
+              <span>
+                {secondary}
+                <br /> {city}, {state} {zip}
+              </span>
+            ) : (
+              <p>
+                {city}, {state} {zip}
+              </p>
+            )}
+          </span>
+        ) : (
+          <br />
+        )}
+      </div>
+    )
+  }
+
   const classes = useStyles()
   const [expanded, setExpanded] = React.useState(false)
 
@@ -64,43 +111,51 @@ export default function EventCard(props) {
     setExpanded(!expanded)
   }
 
+  const event = props.event
+  console.log(event)
+  console.log(event.streetAddress)
+
   return (
     <Card className={classes.root}>
       <CardHeader
         avatar={
           <Avatar aria-label="event" className={classes.avatar}>
-            {icon(props.event.tags[0].tag)}
+            {icon(event.tags[0].tag)}
           </Avatar>
         }
-        // action={
-        //   <IconButton aria-label="settings">
-        //     <MoreVertIcon />
-        //   </IconButton>
-        // }
-        title={props.event.name}
-        subheader={convertDate(props.event.date)}
+        title={event.name}
+        subheader={convertDate(event.date)}
       />
-      <CardMedia
-        className={classes.media}
-        image={props.event.imgUrls[0]}
-        title={props.event.name}
-      />
+      <div onClick={handleExpandClick}>
+        <CardMedia
+          className={classes.media}
+          image={event.imgUrls[0]}
+          title={event.name}
+        />
+      </div>
+
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
-          {props.event.streetAddress}
-          <br />
-          {props.event.secondaryAddress}
-          <br />
-          {props.event.city} {props.event.state} {props.event.zipCode}
-        </Typography>
+        <div variant="body2" color="textSecondary">
+          {location(
+            event.streetAddress,
+            event.secondaryAddress,
+            event.city,
+            event.state,
+            event.zipCode,
+            event.eventLink
+          )}
+        </div>
       </CardContent>
+
       <CardActions disableSpacing>
         <IconButton aria-label="add to calendar">
           <EventIcon />
         </IconButton>
+
         <IconButton aria-label="share">
           <ShareIcon />
         </IconButton>
+
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
@@ -112,9 +167,19 @@ export default function EventCard(props) {
           <ExpandMoreIcon />
         </IconButton>
       </CardActions>
+
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <div dangerouslySetInnerHTML={{__html: props.event.description}} />
+          <br />
+          <strong>Partners:</strong>{' '}
+          <ul>
+            {props.event.partners.map((partner) => {
+              return <li key={partner}>{partner}</li>
+            })}
+          </ul>
+          <strong>Contact:</strong>{' '}
+          {contact(props.event.contactEmail, props.event.contactPhone)}
         </CardContent>
       </Collapse>
     </Card>

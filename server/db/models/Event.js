@@ -50,6 +50,9 @@ const Event = db.define('event', {
       'https://decadeoffire.com/wp/wp-content/uploads/2019/02/WOTM_logo2.jpg',
     ],
   },
+  eventLink: {
+    type: Sequelize.TEXT,
+  },
 })
 
 module.exports = Event

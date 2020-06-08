@@ -1,7 +1,7 @@
 'use strict'
 
 const db = require('../server/db')
-const {Event, Post, Tag, User} = require('../server/db/models')
+const {Event, Post, Tag, User, Follower} = require('../server/db/models')
 
 const postsSeed = require('./postsSeed.js')
 const eventSeed = require('./eventSeed.js')
@@ -17,6 +17,20 @@ const tagSeed = [
   {tag: 'free'},
 ]
 
+const followerSeed = [
+  {
+    firstName: 'Stacey',
+    lastName: 'Eliuk',
+    email: 'stacey.eliuk@gmail.com',
+    phone: '718-683-4023',
+    streetAddress: '51-23 Queens Blvd.',
+    city: 'Woodside',
+    state: 'NY',
+    zipCode: '11377',
+    interests: ['housing', 'education'],
+  },
+]
+
 async function seed() {
   await db.sync({force: true})
   console.log('db synced!')
@@ -25,6 +39,7 @@ async function seed() {
   const events = await Event.bulkCreate(eventSeed)
   const users = await User.bulkCreate(userSeed)
   const tags = await Tag.bulkCreate(tagSeed)
+  const followers = await Follower.bulkCreate(followerSeed)
 
   const ed = await Tag.findOne({where: {id: 1}})
   const housing = await Tag.findOne({where: {id: 2}})
@@ -81,6 +96,7 @@ async function seed() {
   console.log(`seeded ${events.length} events`)
   console.log(`seeded ${users.length} users`)
   console.log(`seeded ${tags.length} tags`)
+  console.log(`seeded ${followers.length} followers`)
 
   console.log(`seeded successfully`)
 }
