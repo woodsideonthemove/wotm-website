@@ -14,13 +14,16 @@ const eventSeed = [
     date: new Date('April 30, 2020 18:00:00 GMT-0400'),
     contactPhone: '',
     contactEmail: 'info@woodsideonthemove.org',
-    streetAddress:
-      'Join us on Zoom: https://us02web.zoom.us/meeting/register/tZckcuGorTouGNapzWd79d1vL_Dqrxpl7ETh?fbclid=IwAR0_khDtnByP0OFcwEZsngGjxJpWDRLsYD-NWNcPGqFiO3eJuhM61UXEUXw',
+    streetAddress: 'Join us on Zoom',
     secondaryAddress: '',
     city: '',
     state: '',
     zipCode: '',
-    imgUrls: ['https://ibb.co/album/sJzZ4D'],
+    imgUrls: [
+      'https://i.ibb.co/TL3Kz9X/95486089-10101274813051660-3011544563018891264-o.jpg',
+    ],
+    eventLink:
+      'https://us02web.zoom.us/meeting/register/tZckcuGorTouGNapzWd79d1vL_Dqrxpl7ETh?fbclid=IwAR0_khDtnByP0OFcwEZsngGjxJpWDRLsYD-NWNcPGqFiO3eJuhM61UXEUXw',
   },
   {
     name: 'Weekly Woodside Food Distribution and Hunger Relief',
@@ -36,9 +39,7 @@ const eventSeed = [
     state: 'NY',
     zipCode: '11377',
     imgUrls: [
-      'https://i.ibb.co/PxVgmHR/Woodside-herald-covid.png',
-      'https://i.ibb.co/LrpnzH5/Screen-Shot-2020-04-09-at-6-47-15-PM-2.png',
-      'https://i.ibb.co/bmcyzrJ/92101362-223131735695684-1253618541869924352-o-266x250.jpg',
+      'https://i.ibb.co/jzVFKxM/96688088-10163402390900697-1767378625692172288-o.jpg',
     ],
   },
   {
@@ -55,9 +56,7 @@ const eventSeed = [
     state: 'NY',
     zipCode: '11377',
     imgUrls: [
-      'https://i.ibb.co/PxVgmHR/Woodside-herald-covid.png',
-      'https://i.ibb.co/LrpnzH5/Screen-Shot-2020-04-09-at-6-47-15-PM-2.png',
-      'https://i.ibb.co/bmcyzrJ/92101362-223131735695684-1253618541869924352-o-266x250.jpg',
+      'https://i.ibb.co/jzVFKxM/96688088-10163402390900697-1767378625692172288-o.jpg',
     ],
   },
   {
@@ -74,9 +73,7 @@ const eventSeed = [
     state: 'NY',
     zipCode: '11377',
     imgUrls: [
-      'https://i.ibb.co/PxVgmHR/Woodside-herald-covid.png',
-      'https://i.ibb.co/LrpnzH5/Screen-Shot-2020-04-09-at-6-47-15-PM-2.png',
-      'https://i.ibb.co/bmcyzrJ/92101362-223131735695684-1253618541869924352-o-266x250.jpg',
+      'https://i.ibb.co/jzVFKxM/96688088-10163402390900697-1767378625692172288-o.jpg',
     ],
   },
   {
@@ -93,9 +90,7 @@ const eventSeed = [
     state: 'NY',
     zipCode: '11377',
     imgUrls: [
-      'https://i.ibb.co/PxVgmHR/Woodside-herald-covid.png',
-      'https://i.ibb.co/LrpnzH5/Screen-Shot-2020-04-09-at-6-47-15-PM-2.png',
-      'https://i.ibb.co/bmcyzrJ/92101362-223131735695684-1253618541869924352-o-266x250.jpg',
+      'https://i.ibb.co/jzVFKxM/96688088-10163402390900697-1767378625692172288-o.jpg',
     ],
   },
   {
@@ -112,9 +107,7 @@ const eventSeed = [
     state: 'NY',
     zipCode: '11377',
     imgUrls: [
-      'https://i.ibb.co/PxVgmHR/Woodside-herald-covid.png',
-      'https://i.ibb.co/LrpnzH5/Screen-Shot-2020-04-09-at-6-47-15-PM-2.png',
-      'https://i.ibb.co/bmcyzrJ/92101362-223131735695684-1253618541869924352-o-266x250.jpg',
+      'https://i.ibb.co/jzVFKxM/96688088-10163402390900697-1767378625692172288-o.jpg',
     ],
   },
   {
@@ -131,9 +124,7 @@ const eventSeed = [
     state: 'NY',
     zipCode: '11377',
     imgUrls: [
-      'https://i.ibb.co/PxVgmHR/Woodside-herald-covid.png',
-      'https://i.ibb.co/LrpnzH5/Screen-Shot-2020-04-09-at-6-47-15-PM-2.png',
-      'https://i.ibb.co/bmcyzrJ/92101362-223131735695684-1253618541869924352-o-266x250.jpg',
+      'https://i.ibb.co/jzVFKxM/96688088-10163402390900697-1767378625692172288-o.jpg',
     ],
   },
 ]
