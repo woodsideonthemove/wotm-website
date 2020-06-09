@@ -112,8 +112,6 @@ export default function EventCard(props) {
   }
 
   const event = props.event
-  console.log(event)
-  console.log(event.streetAddress)
 
   return (
     <Card className={classes.root}>
@@ -170,16 +168,16 @@ export default function EventCard(props) {
 
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <div dangerouslySetInnerHTML={{__html: props.event.description}} />
+          <div dangerouslySetInnerHTML={{__html: event.description}} />
           <br />
           <strong>Partners:</strong>{' '}
           <ul>
-            {props.event.partners.map((partner) => {
+            {event.partners.map((partner) => {
               return <li key={partner}>{partner}</li>
             })}
           </ul>
           <strong>Contact:</strong>{' '}
-          {contact(props.event.contactEmail, props.event.contactPhone)}
+          {contact(event.contactEmail, event.contactPhone)}
         </CardContent>
       </Collapse>
     </Card>

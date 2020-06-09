@@ -20,12 +20,16 @@ router.post('/', async (req, res, next) => {
   try {
     if (req.body) {
       const result = await Follower.findOrCreate({
-        where: {
-          email: req.body.email,
+        where: {email: req.body.email},
+        defaults: {
+          firstName: req.body.firstName,
+          lastName: req.body.lastName,
         },
       })
+
       const follower = result[0],
         wasCreated = result[1]
+
       if (!wasCreated) {
         await follower.update(req.body, {omitNull: true})
       } else if (follower) {
@@ -34,7 +38,7 @@ router.post('/', async (req, res, next) => {
         res.send('Could not add')
       }
     } else {
-      res.status(404).send('No follower was added!')
+      res.status(404).send('Could not add follower')
     }
   } catch (error) {
     next(error)

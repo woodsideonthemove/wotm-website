@@ -4,7 +4,7 @@ import {fetchEvents} from '../redux/events'
 import {connect} from 'react-redux'
 import Box from '@material-ui/core/Box'
 import Typography from '@material-ui/core/Typography'
-import SignUp from './SignUp'
+import {EmailSubscribe} from './EmailSignup'
 import {withStyles} from '@material-ui/styles'
 import PropTypes from 'prop-types'
 
@@ -40,7 +40,7 @@ class Events extends React.Component {
             })}
           </div>
           <div>
-            <SignUp />
+            <EmailSubscribe />
           </div>
         </Box>
       </Box>

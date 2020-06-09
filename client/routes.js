@@ -10,6 +10,7 @@ import {
   Gallery,
   SinglePost,
   SingleEvent,
+  FullSubscribe,
 } from './components'
 
 /**
@@ -23,9 +24,11 @@ class Routes extends Component {
         <Route exact path="/" component={Home} />
         <Route exact path="/news" component={AllPosts} />
         <Route exact path="/events" component={Events} />
+        <Route path="/subscribe" component={FullSubscribe} />
         {/*<Route path="/about" component={About} />
         <Route path="/programs" component={Programs} />
         <Route path="/gallery" component={Gallery} />
+
 
         <Route
           path="/posts/:postId"

@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+//CAN PROBABLY DELETE
+
 const CREATE_FOLLOWER = 'CREATE_FOLLOWER'
 
 const newFollower = (follower) => ({
@@ -18,15 +20,13 @@ export const createFollower = (follower) => async (dispatch) => {
   }
 }
 
-export function fetchPosts() {
-  return async function (dispatch) {
-    try {
-      let allPosts = await axios.get('/api/posts')
-      if (allPosts) {
-        dispatch(setPosts(allPosts.data))
-      }
-    } catch (err) {
-      console.log(err)
-    }
+const initialState = []
+
+export const followersReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case CREATE_FOLLOWER:
+      return action.data
+    default:
+      return state
   }
 }
