@@ -24,6 +24,18 @@ router.post('/', async (req, res, next) => {
         defaults: {
           firstName: req.body.firstName,
           lastName: req.body.lastName,
+          phone: req.body.phone,
+          streetAddress: req.body.streetAddress,
+          secondaryAddress: req.body.secondaryAddress,
+          city: req.body.city,
+          state: req.body.state,
+          zipCode: req.body.zipCode,
+          housingAdvocacy: req.body.housingAdvocacy,
+          housingPrograms: req.body.housingPrograms,
+          educationPrograms: req.body.educationPrograms,
+          educationAdvocacy: req.body.educationAdvocacy,
+          events: req.body.events,
+          community: req.body.community,
         },
       })
 

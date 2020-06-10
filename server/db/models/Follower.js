@@ -43,9 +43,23 @@ const Follower = db.define('follower', {
   zipCode: {
     type: Sequelize.STRING,
   },
-  interests: {
-    type: Sequelize.ARRAY(Sequelize.STRING),
-    defaultValue: [],
+  housingAdvocacy: {
+    type: Sequelize.BOOLEAN,
+  },
+  housingPrograms: {
+    type: Sequelize.BOOLEAN,
+  },
+  educationPrograms: {
+    type: Sequelize.BOOLEAN,
+  },
+  educationAdvocacy: {
+    type: Sequelize.BOOLEAN,
+  },
+  events: {
+    type: Sequelize.BOOLEAN,
+  },
+  community: {
+    type: Sequelize.BOOLEAN,
   },
 })
 
