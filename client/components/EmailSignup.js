@@ -17,9 +17,17 @@ import axios from 'axios'
 import FormLabel from '@material-ui/core/FormLabel'
 import FormControl from '@material-ui/core/FormControl'
 import FormGroup from '@material-ui/core/FormGroup'
+import Dialog from '@material-ui/core/Dialog'
+import DialogActions from '@material-ui/core/DialogActions'
+import DialogContent from '@material-ui/core/DialogContent'
+import DialogContentText from '@material-ui/core/DialogContentText'
+import DialogTitle from '@material-ui/core/DialogTitle'
+import Slide from '@material-ui/core/Slide'
 import {validateEmail} from '../../utils'
 
-//Convert check boxes to an array to send to the back end
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />
+})
 
 function Copyright() {
   return (
@@ -81,6 +89,8 @@ const SignUp = (props) => {
     events: false,
     community: false,
     optEmail: false,
+    open: false,
+    setOpen: false,
   })
 
   let {
@@ -100,7 +110,31 @@ const SignUp = (props) => {
     events,
     community,
     optEmail,
+    open,
   } = state
+
+  const handleClose = () => {
+    setState({
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      streetAddress: '',
+      secondaryAddress: '',
+      city: '',
+      stt: '',
+      zipCode: '',
+      housingAdvocacy: false,
+      housingPrograms: false,
+      educationPrograms: false,
+      educationAdvocacy: false,
+      events: false,
+      community: false,
+      optEmail: false,
+      open: false,
+      setOpen: false,
+    })
+  }
 
   const handleSubmit = async (evt) => {
     evt.preventDefault()
@@ -122,7 +156,10 @@ const SignUp = (props) => {
       community: state.community,
     }
     try {
-      await axios.post('/api/followers', body)
+      const res = await axios.post('/api/followers', body)
+      if (res.status === 200 || res.status === 201) {
+        setState({...state, open: true})
+      }
     } catch (err) {
       console.log(err)
     }
@@ -139,16 +176,48 @@ const SignUp = (props) => {
   const renderButton = () => {
     if (optEmail && firstName.length && lastName.length && validateEmail(email))
       return (
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          color="secondary"
-          className={classes.submit}
-          onClick={handleSubmit}
-        >
-          {displayName}
-        </Button>
+        <div>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="secondary"
+            className={classes.submit}
+            onClick={handleSubmit}
+          >
+            {displayName}
+          </Button>
+          <Dialog
+            open={open}
+            TransitionComponent={Transition}
+            keepMounted
+            onClose={handleClose}
+            aria-labelledby="alert-dialog-slide-title"
+            aria-describedby="alert-dialog-slide-description"
+          >
+            <DialogTitle id="alert-dialog-slide-title">
+              Successfully added to our email list!
+            </DialogTitle>
+            <DialogContent>
+              <DialogContentText id="alert-dialog-slide-description">
+                Keep up to date and follow us on{' '}
+                <a href="https://www.facebook.com/WoodsideontheMove/">
+                  Facebook
+                </a>
+                , <a href="https://twitter.com/WoodsideMoves">Twitter</a>, and{' '}
+                <a href="https://www.instagram.com/woodsideonthemove/">
+                  Instagram
+                </a>
+                .
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClose} color="primary">
+                Continue
+              </Button>
+            </DialogActions>
+          </Dialog>
+        </div>
       )
     else
       return (

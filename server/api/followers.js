@@ -44,6 +44,7 @@ router.post('/', async (req, res, next) => {
 
       if (!wasCreated) {
         await follower.update(req.body, {omitNull: true})
+        res.status(200).json(follower)
       } else if (follower) {
         res.status(201).json(follower)
       } else {
