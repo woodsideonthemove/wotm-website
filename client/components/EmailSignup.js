@@ -23,7 +23,9 @@ import DialogContent from '@material-ui/core/DialogContent'
 import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import Slide from '@material-ui/core/Slide'
-import Paper from '@material-ui/core/Paper'
+import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
+
 import {validateEmail} from '../../utils'
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -77,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
     zIndex: '-1',
   },
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(2),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -102,15 +104,9 @@ const useStyles = makeStyles((theme) => ({
   },
   header: {
     display: 'flex',
-    flexWrap: 'wrap',
-    '& > *': {
-      margin: theme.spacing(1),
-      width: theme.spacing(13.5),
-      height: theme.spacing(4),
-    },
-    justifyContent: 'center',
+    maxHeight: '65px',
+    opacity: '0.9',
   },
-  opacity: '0.9',
 }))
 
 const SignUp = (props) => {
@@ -280,21 +276,28 @@ const SignUp = (props) => {
   }
   return (
     <Container className={classes.container}>
-      <img
-        className={classes.media}
-        src="https://i.ibb.co/dmZ849B/82221757-10162696550845697-567291130270449664-n.jpg"
-      />
+      {name === 'subscribe' ? (
+        <img
+          className={classes.media}
+          src="https://i.ibb.co/dmZ849B/82221757-10162696550845697-567291130270449664-n.jpg"
+        />
+      ) : (
+        <React.Fragment />
+      )}
       <Container className={classes.main} component="main" maxWidth="xs">
         <CssBaseline />
         <div className={classes.paper}>
           <Avatar className={classes.avatar}>
             <PersonAddIcon />
           </Avatar>
-          <Paper size="large" className={classes.header}>
-            <Typography component="h1" variant="h5">
-              {displayName}
-            </Typography>
-          </Paper>
+
+          <Card className={classes.header} maxHeight="65px">
+            <CardContent>
+              <Typography variant="h5" component="h2">
+                {displayName}
+              </Typography>
+            </CardContent>
+          </Card>
 
           <form className={classes.form} name={name} noValidate>
             {name === 'email' ? (
@@ -542,7 +545,7 @@ const SignUp = (props) => {
                         name="optEmail"
                       />
                     }
-                    label="I want to stay in the loop with notifications and emails about what's happening in Woodside and Queens."
+                    label="I want to stay in the loop with notifications about what's happening in Woodside."
                   />
                 </FormGroup>
               </FormControl>

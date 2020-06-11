@@ -16,10 +16,8 @@ const mapStateToProps = (state) => ({
   state: state.posts,
 })
 
-const mapDispatchToProps = (dispatch) => ({
-  fetchingPosts: () => {
-    dispatch(fetchPosts)
-  },
-})
+const mapDispatchToProps = {
+  fetchingPosts: fetchPosts,
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(AllPosts)
