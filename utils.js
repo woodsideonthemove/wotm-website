@@ -30,24 +30,27 @@ const getMonth = (month) => {
   }
 }
 
-const convertDate = (datetime) => {
+const convertDate = (datetime, type) => {
   var utcDate = moment.utc(datetime).format()
   var local = moment.utc(utcDate).local().format()
 
   const month = getMonth(local.slice(5, 7))
   const date = local.slice(8, 10)
   const year = local.slice(0, 4)
-  let meridian = 'AM'
 
-  let hours = parseInt(local.slice(11, 13), 10)
-  if (hours > 12) {
-    hours -= 12
-    meridian = 'PM'
+  if (type === 'post') return `${month} ${date}, ${year}`
+  else {
+    let meridian = 'AM'
+    let hours = parseInt(local.slice(11, 13), 10)
+
+    if (hours > 12) {
+      hours -= 12
+      meridian = 'PM'
+    }
+
+    const minutes = local.slice(14, 16)
+    return `${month} ${date}, ${year} at ${hours}:${minutes} ${meridian}`
   }
-
-  const minutes = local.slice(14, 16)
-
-  return `${month} ${date}, ${year} at ${hours}:${minutes} ${meridian}`
 }
 
 function validateEmail(email) {

@@ -122,7 +122,7 @@ export default function EventCard(props) {
           </Avatar>
         }
         title={event.name}
-        subheader={convertDate(event.date)}
+        subheader={convertDate(event.date, 'event')}
       />
       <div onClick={handleExpandClick}>
         <CardMedia

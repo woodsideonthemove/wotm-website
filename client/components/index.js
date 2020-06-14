@@ -1,6 +1,6 @@
 import {Navbar} from './Navbar'
 import {Home} from './Home'
-import AllPosts from './AllPosts'
+import AllPosts from './Posts'
 import Events from './Events'
 import {FullSubscribe} from './EmailSignup'
 

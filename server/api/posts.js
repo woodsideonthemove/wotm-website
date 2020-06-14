@@ -5,7 +5,7 @@ module.exports = router
 router.get('/', async (req, res, next) => {
   try {
     const posts = await Post.findAll({
-      include: Tag,
+      include: [{model: Tag, attributes: ['tag']}],
     })
     if (posts) {
       res.status(200).json(posts)
@@ -20,7 +20,8 @@ router.get('/', async (req, res, next) => {
 router.get('/:postId', async (req, res, next) => {
   try {
     const post = await Post.findByPk(req.params.postId, {
-      include: Tag,
+      attributes: ['title', 'datePosted', 'imgUrls', 'body'],
+      include: [{model: Tag, attributes: ['tag']}],
     })
     if (post) {
       res.status(200).json(post)
