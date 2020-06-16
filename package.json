@@ -1,0 +1,38 @@
+{
+  "name": "wotm-website",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Website for local non-profit developing programs and connecting stakeholders to invest in housing, industry, commerce and youth in Woodside, Queens",
+  "scripts": {
+    "build": "cd client && yarn && gatsby build",
+    "client-test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "deploy": "script/deploy",
+    "heroku-token": "script/encrypt-heroku-auth-token.js",
+    "lint": "eslint ./ --ignore-path .gitignore",
+    "lint-fix": "npm run lint -- --fix",
+    "prettify": "prettier --write \"**/*.{js,jsx,json,css,scss,md}\"",
+    "postinstall": "touch secrets.js",
+    "seed": "node script/seed.js",
+    "start-server": "nodemon server -e html,js,scss --ignore public --ignore client",
+    "server-test": "NODE_ENV='test' mocha \"./server/**/*.spec.js\" \"./client/**/*.spec.js\" \"./script/**/*.spec.js\" --require @babel/polyfill --require @babel/register"
+  },
+  "author": "Stacey Eliuk",
+  "license": "ISC",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "connect-session-sequelize": "^6.1.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "moment": "^2.26.0",
+    "morgan": "^1.10.0",
+    "passport": "^0.4.1",
+    "pg": "^8.0.3",
+    "sequelize": "^5.21.7"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "nodemon": "^2.0.3",
+    "prettier": "^2.0.5"
+  }
+}
