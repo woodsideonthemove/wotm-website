@@ -1,10 +1,10 @@
 import React from 'react'
-import EventCard from './EventCard'
+import EventCard from '../components/EventCard'
 import {fetchEvents} from '../redux/events'
 import {connect} from 'react-redux'
 import Box from '@material-ui/core/Box'
 import Typography from '@material-ui/core/Typography'
-import SignUp from './SignUp'
+import SignUp from '../components/SignUp'
 import {withStyles} from '@material-ui/styles'
 import PropTypes from 'prop-types'
 
