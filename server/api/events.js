@@ -6,6 +6,7 @@ router.get('/', async (req, res, next) => {
   try {
     const events = await Event.findAll({
       include: Tag,
+      order: [['date', 'DESC']],
     })
     if (events) {
       res.status(200).json(events)
